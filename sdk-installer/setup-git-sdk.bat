@@ -129,16 +129,24 @@
 
 @REM now update the rest
 @"%cwd%"\usr\bin\pacman -S --needed --force --noconfirm ^
-	base python less openssh patch make tar diffutils ca-certificates ^
-	git perl-Error perl perl-Authen-SASL perl-libwww perl-MIME-tools ^
-	perl-Net-SMTP-SSL perl-TermReadKey dos2unix asciidoc xmlto ^
-	subversion mintty vim git-extra p7zip markdown winpty ^
-	mingw-w64-@@ARCH@@-git-doc-html ^
-	mingw-w64-@@ARCH@@-git mingw-w64-@@ARCH@@-toolchain ^
-	mingw-w64-@@ARCH@@-curl mingw-w64-@@ARCH@@-expat ^
-	mingw-w64-@@ARCH@@-openssl mingw-w64-@@ARCH@@-tcl ^
-	mingw-w64-@@ARCH@@-pcre mingw-w64-@@ARCH@@-connect ^
-	git-flow ssh-pageant
+	base less openssh patch make diffutils ca-certificates ^
+	git ^
+	dos2unix asciidoc ^
+	mintty vim git-extra p7zip winpty ^
+	curl openssl pcre
+
+@REM    //ORIG INSTALL
+@REM	base python less openssh patch make tar diffutils ca-certificates ^
+@REM	git perl-Error perl perl-Authen-SASL perl-libwww perl-MIME-tools ^
+@REM	perl-Net-SMTP-SSL perl-TermReadKey dos2unix asciidoc xmlto ^
+@REM	subversion mintty vim git-extra p7zip markdown winpty ^
+@REM	git-flow ssh-pagean
+@REM	mingw-w64-@@ARCH@@-git-doc-html ^
+@REM	mingw-w64-@@ARCH@@-git mingw-w64-@@ARCH@@-toolchain ^
+@REM	mingw-w64-@@ARCH@@-curl mingw-w64-@@ARCH@@-expat ^
+@REM	mingw-w64-@@ARCH@@-openssl mingw-w64-@@ARCH@@-tcl ^
+@REM	mingw-w64-@@ARCH@@-pcre mingw-w64-@@ARCH@@-connect ^
+
 
 @IF ERRORLEVEL 1 GOTO INSTALL_REST
 
@@ -170,7 +178,7 @@
 	@bash --login -c 'SHORTCUT="$HOME/Desktop/Git SDK @@BITNESS@@-bit.lnk"; test -f "$SHORTCUT" ^|^| create-shortcut.exe --icon-file /msys2.ico --work-dir / /git-bash.exe "$SHORTCUT"'
 
 	@REM now clone the Git sources, build it, and start an interactive shell
-	@bash --login -c "mkdir -p /usr/src && cd /usr/src && for project in MINGW-packages MSYS2-packages build-extra; do test ! -d $project && mkdir -p $project && (cd $project && git init && git config core.autocrlf false && git remote add origin https://github.com/git-for-windows/$project); done; if test ! -d git; then git clone -b @@GIT_BRANCH@@ -c core.autocrlf=false https://github.com/git-for-windows/git; fi && cd git && make install"
+	@REM @bash --login -c "mkdir -p /usr/src && cd /usr/src && for project in MINGW-packages MSYS2-packages build-extra; do test ! -d $project && mkdir -p $project && (cd $project && git init && git config core.autocrlf false && git remote add origin https://github.com/git-for-windows/$project); done; if test ! -d git; then git clone -b @@GIT_BRANCH@@ -c core.autocrlf=false https://github.com/git-for-windows/git; fi && cd git && make install"
 
 	@IF ERRORLEVEL 1 PAUSE
 
