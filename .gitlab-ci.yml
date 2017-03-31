@@ -1,0 +1,12 @@
+image: computermouth/sudeb
+
+before_script:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y wine git
+
+setup:
+  script:
+    - mkdir -p /opt/thing
+    - mkdir -p /usr/share/thing
+    - git clone https://github.com/git-for-windows/build-extra
+    - ls -lsah
