@@ -6,6 +6,6 @@ before_script:
 
 setup:
   script:
-    - mkdir -p /usr/share/thing
+    - mkdir -p ../thing
     - git clone https://github.com/git-for-windows/build-extra
     - ls -lsah
