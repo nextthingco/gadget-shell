@@ -1,6 +1,7 @@
 image: computermouth/sudeb
 
 before_script:
+  - sudo dpkg --add-architecture i386
   - sudo apt-get update -qq
   - sudo apt-get install -y wine wine32 git wget
 
