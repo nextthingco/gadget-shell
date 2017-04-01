@@ -7,9 +7,10 @@ variables:
 before_script:
   - sudo dpkg --add-architecture i386
   - sudo apt-get update -qq
-  - sudo apt-get install -y wine wine32 git wget debconf xinit
+  - sudo apt-get install -y wine wine32 git wget debconf
   - ./keyboard_set.sh 
   - sudo apt-get install -y xserver-xorg-video-dummy
+  - sudo apt-get install -y xinit
 
 setup:
   script:
