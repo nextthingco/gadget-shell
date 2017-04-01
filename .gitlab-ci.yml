@@ -3,7 +3,6 @@ image: computermouth/sudeb
 variables:
   DEBIAN_FRONTEND: noninteractive
   LANG: C
-  DISPLAY: ":0"
 
 before_script:
   - sudo dpkg --add-architecture i386
@@ -20,5 +19,5 @@ setup:
     - wget https://github.com/git-for-windows/build-extra/releases/download/git-sdk-1.0.3/git-sdk-installer-1.0.3-64.7z.exe
     - sudo startx&
     - sleep 10s
-    - wine git-*.exe -y -gm2
+    - DISPLAY=:0 wine git-*.exe -y -gm2
     - ls -lsah
