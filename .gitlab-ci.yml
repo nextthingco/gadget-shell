@@ -1,7 +1,8 @@
 image: computermouth/sudeb
 
 variables:
-  DEBIAN_FRONTEND: "noninteractive"
+  DEBIAN_FRONTEND: noninteractive
+  LANG: C
 
 before_script:
   - sudo dpkg --add-architecture i386
