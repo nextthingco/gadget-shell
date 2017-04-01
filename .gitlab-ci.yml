@@ -1,5 +1,8 @@
 image: computermouth/sudeb
 
+variables:
+  DEBIAN_FRONTEND: "noninteractive"
+
 before_script:
   - sudo dpkg --add-architecture i386
   - sudo apt-get update -qq
