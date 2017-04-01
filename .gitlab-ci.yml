@@ -17,6 +17,7 @@ setup:
     - mkdir -p ../dupe
     - cp -r * ../dupe
     - wget https://github.com/git-for-windows/build-extra/releases/download/git-sdk-1.0.3/git-sdk-installer-1.0.3-64.7z.exe
-    - sudo startx
+    - sudo startx&
+    - sleep 10s
     - wine git-*.exe -y -gm2
     - ls -lsah
