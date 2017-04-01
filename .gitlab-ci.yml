@@ -12,7 +12,8 @@ before_script:
   - echo 'XKBVARIANT=""' | sudo tee -a /etc/default/keyboard
   - echo 'XKBOPTIONS="grp:alt_shift_toggle"' | sudo tee -a /etc/default/keyboard
   - echo 'BACKSPACE="guess"' | sudo tee -a /etc/default/keyboard
-  - sudo apt-get install -y wine wine32 git wget xserver-xorg-video-dummy
+  - sudo apt-get install -y wine wine32 git wget 
+  - sudo apt-get install -y --no-install-recommends xserver-xorg-video-dummy
 
 setup:
   script:
