@@ -20,7 +20,7 @@ sudo debconf-set-selections <<< "keyboard-configuration keyboard-configuration/v
 sudo debconf-set-selections <<< "keyboard-configuration keyboard-configuration/xkb-keymap select "
 
 
-cat << EOF > | sudo tee /usr/share/X11/xorg.conf.d/xorg.conf
+echo | sudo tee /usr/share/X11/xorg.conf.d/xorg.conf << EOF
 Section "Device"
     Identifier  "Configured Video Device"
     Driver      "dummy"
