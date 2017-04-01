@@ -3,11 +3,11 @@ image: computermouth/sudeb
 before_script:
   - sudo dpkg --add-architecture i386
   - sudo apt-get update -qq
-  - echo 'XKBMODEL="pc105"' >> /etc/default/keyboard
-  - echo 'XKBLAYOUT="us"' >> /etc/default/keyboard
-  - echo 'XKBVARIANT=""' >> /etc/default/keyboard
-  - echo 'XKBOPTIONS="grp:alt_shift_toggle"' >> /etc/default/keyboard
-  - echo 'BACKSPACE="guess"' >> /etc/default/keyboard
+  - echo 'XKBMODEL="pc105"' | sudo tee /etc/default/keyboard
+  - echo 'XKBLAYOUT="us"' | sudo tee -a /etc/default/keyboard
+  - echo 'XKBVARIANT=""' | sudo tee -a /etc/default/keyboard
+  - echo 'XKBOPTIONS="grp:alt_shift_toggle"' | sudo tee -a /etc/default/keyboard
+  - echo 'BACKSPACE="guess"' | sudo tee -a /etc/default/keyboard
   - sudo apt-get install -y wine wine32 git wget xserver-xorg-video-dummy
 
 setup:
