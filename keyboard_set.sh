@@ -42,6 +42,3 @@ Section "Screen"
     Modes "1024x800"
     EndSubSection
 EndSection
-EOF 
-
-cat /etc/X11/xorg.conf.d/xorg.conf
