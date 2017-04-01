@@ -7,15 +7,15 @@ variables:
 before_script:
   - sudo dpkg --add-architecture i386
   - sudo apt-get update -qq
-  - sudo apt-get install -y wine wine32 git wget debconf
+  - sudo apt-get install -y wine wine32 git wget debconf startx
   - ./keyboard_set.sh 
-  - sudo apt-get install -y --no-install-recommends xserver-xorg-video-dummy
+  - sudo apt-get install -y xserver-xorg-video-dummy
 
 setup:
   script:
     - mkdir -p ../dupe
     - cp -r * ../dupe
     - wget https://github.com/git-for-windows/build-extra/releases/download/git-sdk-1.0.3/git-sdk-installer-1.0.3-64.7z.exe
-    - export DEBIAN_FRONTEND=noninteractive
+    - startx&
     - wine git-*.exe -y -gm2
     - ls -lsah
