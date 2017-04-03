@@ -70,6 +70,9 @@ dlls_for_exes () {
 	echo "$dlls"
 }
 
+gadgetBin="usr/bin/gadget.exe"
+gadgetTemplates="$(pushd / > /dev/null && find usr/share/gadget/templates && popd > /dev/null)"
+
 fileList="etc/nsswitch.conf \
 	etc/pacman.conf \
 	etc/pacman.d \
@@ -80,6 +83,8 @@ fileList="etc/nsswitch.conf \
 	usr/bin/gpg.exe \
 	$(dlls_for_exes /usr/bin/gpg.exe /usr/bin/curl.exe)
 	usr/ssl/certs/ca-bundle.crt \
+	${gadgetBin} \
+	${gadgetTemplates} \
 	var/lib/pacman
 	$FAKEROOTDIR/setup-git-sdk.bat $FAKEROOTDIR/etc $FAKEROOTDIR/usr"
 
