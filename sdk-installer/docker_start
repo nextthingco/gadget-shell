@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash
 
 which_docker="$(echo $PATH | sed 's/:/\n/g' | sed 's/\n//g' | grep 'Docker Toolbox')"
 
