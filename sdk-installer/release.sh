@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 # Recreate git-sdk-$VERSION.exe
 
@@ -71,6 +71,7 @@ dlls_for_exes () {
 }
 
 gadgetBin="usr/bin/gadget.exe"
+gadgetShinit="usr/bin/gadget_shell_init.sh"
 gadgetTemplates="$(pushd / > /dev/null && find usr/share/gadget/templates && popd > /dev/null)"
 
 fileList="etc/nsswitch.conf \
@@ -84,6 +85,7 @@ fileList="etc/nsswitch.conf \
 	$(dlls_for_exes /usr/bin/gpg.exe /usr/bin/curl.exe)
 	usr/ssl/certs/ca-bundle.crt \
 	${gadgetBin} \
+	${gadgetShinit} \
 	${gadgetTemplates} \
 	var/lib/pacman
 	$FAKEROOTDIR/setup-git-sdk.bat $FAKEROOTDIR/etc $FAKEROOTDIR/usr"
