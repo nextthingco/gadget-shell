@@ -5,8 +5,8 @@ which_docker="$(echo $PATH | sed 's/:/\n/g' | sed 's/\n//g' | grep 'Docker Toolb
 if [[ -z $which_docker ]]; then
     echo "ERROR: Could not find Docker Toolbox! quitting.."
 else
-    pushd "${which_docker}" 
-    source start.sh
+    cd "${which_docker}" 
+    start.sh echo done
 fi
 
-exit
+cd "$HOME"

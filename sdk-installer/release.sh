@@ -29,7 +29,7 @@ GIT_BRANCH="${2:-master}"
 GIT_CLONE_URL=https://github.com/git-for-windows/git
 
 FAKEROOTDIR="$(cd "$(dirname "$0")" && pwd)/root"
-TARGET="$HOME"/git-sdk-installer-"$1"-$BITNESS.7z.exe
+TARGET="$HOME"/gadget-shell-installer-"$1"-$BITNESS.7z.exe
 OPTS7="-m0=lzma -mx=9 -md=64M"
 TMPPACK=/tmp.7z
 SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd)"
@@ -71,7 +71,7 @@ dlls_for_exes () {
 }
 
 gadgetBin="usr/bin/gadget.exe"
-gadgetShinit="usr/bin/docker_start"
+gadgetShinit="etc/profile.d/docker_start.sh"
 gadgetTemplates="$(pushd / > /dev/null && find usr/share/gadget/templates && popd > /dev/null)"
 
 fileList="etc/nsswitch.conf \
@@ -106,7 +106,7 @@ echo "Creating archive" &&
  echo 'ExtractTitle="Extracting..."' &&
  echo 'GUIFlags="8+32+64+256+4096"' &&
  echo 'GUIMode="1"' &&
- echo 'InstallPath="C:\\git-sdk-'$BITNESS'"' &&
+ echo 'InstallPath="C:\\gadget-shell-'$BITNESS'"' &&
  echo 'OverwriteMode="2"' &&
  echo 'ExecuteFile="%%T\setup-git-sdk.bat"' &&
  echo 'Delete="%%T\setup-git-sdk.bat"' &&
