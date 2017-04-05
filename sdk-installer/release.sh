@@ -71,7 +71,7 @@ dlls_for_exes () {
 }
 
 gadgetBin="usr/bin/gadget.exe"
-gadgetShinit="etc/profile.d/docker_start.sh"
+gadgetShinit="usr/bin/docker_start"
 gadgetTemplates="$(pushd / > /dev/null && find usr/share/gadget/templates && popd > /dev/null)"
 
 fileList="etc/nsswitch.conf \
