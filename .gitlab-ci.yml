@@ -1,23 +1,12 @@
-image: computermouth/sudeb
 
-variables:
-  DEBIAN_FRONTEND: noninteractive
-  LANG: C
+stages:
+  - build
 
-before_script:
-  - sudo dpkg --add-architecture i386
-  - sudo apt-get update -qq
-  - sudo apt-get install -y wine wine32 git wget debconf
-  - ./keyboard_set.sh 
-  - sudo apt-get install -y xserver-xorg-video-dummy
-  - sudo apt-get install -y xinit
-
-setup:
+job:
+  stage: build
+  tags: [ec2-msys2-git4win]
   script:
-    - mkdir -p ../dupe
-    - cp -r * ../dupe
-    - wget https://github.com/git-for-windows/build-extra/releases/download/git-sdk-1.0.3/git-sdk-installer-1.0.3-64.7z.exe
-    - sudo startx&
-    - sleep 10s
-    - DISPLAY=:0 wine git-*.exe -y -gm2
-    - ls -lsah
+#    - set PATH=%PATH%;C:/msys64/usr/bin& set MSYSTEM=MSYS& set MSYS2_PATH_TYPE=inherit& C:/msys64/usr/bin/bash -c ./build.sh
+     - set PATH=%PATH%;C:/git-sdk-64/mingw64/bin;C:/msys64/usr/bin& set MSYSTEM=MINGW64& set MSYS2_PATH_TYPE=inherit& C:/msys64/usr/bin/bash -c ./setup.sh
+     - set PATH=%PATH%;C:/git-sdk-64/mingw64/bin;C:/msys64/usr/bin& set MSYSTEM=MINGW64& set MSYS2_PATH_TYPE=inherit& C:/msys64/usr/bin/bash -c ./build.sh
+     - set PATH=%PATH%;C:/git-sdk-64/mingw64/bin;C:/msys64/usr/bin& set MSYSTEM=MINGW64& set MSYS2_PATH_TYPE=inherit& C:/msys64/usr/bin/bash -c ./cleanup.sh
