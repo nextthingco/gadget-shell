@@ -2,6 +2,12 @@
 
 which_docker="$(echo $PATH | sed 's/:/\n/g' | sed 's/\n//g' | grep 'Docker Toolbox' | head -1)"
 
+if [[ ! -z $DOCKER_MACHINE_NAME ]]; then
+  pushd $HOME >/dev/null
+  return 0
+#  bash --login -i
+fi
+
 if [[ -z $which_docker ]]; then
   echo "ERROR: Could not find Docker Toolbox! quitting.."
 else
@@ -10,7 +16,7 @@ else
   #~ sed -i 's/exec/#exec/g' nonexec.sh
   #~ source nonexec.sh
       #~ alias exec="#"
-      source start.sh
+      exec start.sh
       #~ unalias exec
   #    start.sh echo donefi
 fi

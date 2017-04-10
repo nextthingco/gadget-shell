@@ -181,6 +181,7 @@
 	@REM @bash --login -c "mkdir -p /usr/src && cd /usr/src && for project in MINGW-packages MSYS2-packages build-extra; do test ! -d $project && mkdir -p $project && (cd $project && git init && git config core.autocrlf false && git remote add origin https://github.com/git-for-windows/$project); done; if test ! -d git; then git clone -b @@GIT_BRANCH@@ -c core.autocrlf=false https://github.com/git-for-windows/git; fi && cd git && make install"
 
 	@IF ERRORLEVEL 1 PAUSE
-
+	
 	@start mintty -i /msys2.ico -t "Gadget Shell @@BITNESS@@-bit" bash --login -i
+	@REM @start mintty -i /msys2.ico -t "Gadget Shell @@BITNESS@@-bit" /msys2.exe
 )

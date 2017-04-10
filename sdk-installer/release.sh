@@ -71,7 +71,8 @@ dlls_for_exes () {
 }
 
 gadgetBin="usr/bin/gadget.exe"
-gadgetShinit="usr/bin/docker_start"
+gadgetDockerStart="usr/bin/docker_start"
+gadgetProfileD="etc/profile.d/gadget_init_docker.sh"
 gadgetTemplates="$(pushd / > /dev/null && find usr/share/gadget/templates && popd > /dev/null)"
 
 fileList="etc/nsswitch.conf \
@@ -85,7 +86,8 @@ fileList="etc/nsswitch.conf \
 	$(dlls_for_exes /usr/bin/gpg.exe /usr/bin/curl.exe)
 	usr/ssl/certs/ca-bundle.crt \
 	${gadgetBin} \
-	${gadgetShinit} \
+	${gadgetDockerStart} \
+	${gadgetProfileD} \
 	${gadgetTemplates} \
 	var/lib/pacman
 	$FAKEROOTDIR/setup-git-sdk.bat $FAKEROOTDIR/etc $FAKEROOTDIR/usr"
