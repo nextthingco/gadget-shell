@@ -129,11 +129,11 @@
 
 @REM now update the rest
 @"%cwd%"\usr\bin\pacman -S --needed --force --noconfirm ^
-	base less openssh patch make diffutils ca-certificates ^
+	base less openssh patch make ca-certificates ^
 	git ^
-	dos2unix asciidoc ^
-	mintty vim git-extra p7zip winpty ^
-	curl openssl pcre
+	dos2unix ^
+	mintty vim git-extra nano p7zip winpty ^
+	curl openssl
 
 @REM    //ORIG INSTALL
 @REM	base python less openssh patch make tar diffutils ca-certificates ^
