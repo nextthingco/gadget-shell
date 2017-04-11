@@ -4,9 +4,8 @@ which_docker="$(echo $PATH | sed 's/:/\n/g' | sed 's/\n//g' | grep 'Docker Toolb
 
 if [[ ! -z $DOCKER_MACHINE_NAME ]]; then
   pushd $HOME >/dev/null
-  return 0
-#  bash --login -i
-fi
+else
+	#  bash --login -i
 
 if [[ -z $which_docker ]]; then
   echo "ERROR: Could not find Docker Toolbox! quitting.."
@@ -21,3 +20,4 @@ else
   #    start.sh echo donefi
 fi
 #cd ${HOME}
+fi
