@@ -1,7 +1,3 @@
-variables:
-  beep: echo thinger
-
-
 stages:
   - build
 
@@ -9,4 +5,4 @@ job:
   stage: build
   tags: [onsite-win10-001]
   script:
-     - %beep%
+     - echo thinger
