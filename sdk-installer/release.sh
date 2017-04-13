@@ -2,6 +2,8 @@
 
 # Recreate git-sdk-$VERSION.exe
 
+ntc_pwd=${PWD}
+
 test -z "$1" && {
 	echo "Usage: $0 <version> [<gitbranch>]"
 	exit 1
@@ -71,8 +73,8 @@ dlls_for_exes () {
 }
 
 gadgetBin="usr/bin/gadget.exe"
-gadgetDockerStart="usr/bin/docker_start"
-gadgetProfileD="etc/profile.d/gadget_init_docker.sh"
+gadgetDockerStart="${ntc_pwd}/docker_start"
+gadgetProfileD="${ntc_pwd}/gadget_init_docker.sh"
 gadgetTemplates="$(pushd / > /dev/null && find usr/share/gadget/templates && popd > /dev/null)"
 
 fileList="etc/nsswitch.conf \
