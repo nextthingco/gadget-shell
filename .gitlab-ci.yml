@@ -10,7 +10,3 @@ job:
   tags: [onsite-win10-001]
   script:
      - %beep%
-#     - set PATH=%PATH%;C:/msys64/usr/bin& set MSYSTEM=MSYS& set MSYS2_PATH_TYPE=inherit& C:/msys64/usr/bin/bash -c ./build.sh
-#     - set PATH=%PATH%;C:/git-sdk-64/mingw64/bin;C:/msys64/usr/bin& set MSYSTEM=MINGW64& set MSYS2_PATH_TYPE=inherit& C:/msys64/usr/bin/bash -c ./setup.sh
-#     - set PATH=%PATH%;C:/git-sdk-64/mingw64/bin;C:/msys64/usr/bin& set MSYSTEM=MINGW64& set MSYS2_PATH_TYPE=inherit& C:/msys64/usr/bin/bash -c ./build.sh
-#     - set PATH=%PATH%;C:/git-sdk-64/mingw64/bin;C:/msys64/usr/bin& set MSYSTEM=MINGW64& set MSYS2_PATH_TYPE=inherit& C:/msys64/usr/bin/bash -c ./cleanup.sh
